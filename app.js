@@ -2,6 +2,7 @@ import express from "express";
 import ejs from "ejs";
 import _ from "lodash";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 const homeStartingContent =
 	"Lacus vel facilisis volutpat est velit egestas dui id ornare. Semper auctor neque vitae tempus quam. Sit amet cursus sit amet dictum sit amet justo. Viverra tellus in hac habitasse. Imperdiet proin fermentum leo vel orci porta. Donec ultrices tincidunt arcu non sodales neque sodales ut. Mattis molestie a iaculis at erat pellentesque adipiscing. Magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies. Adipiscing elit ut aliquam purus sit amet luctus venenatis lectus. Ultrices vitae auctor eu augue ut lectus arcu bibendum at. Odio euismod lacinia at quis risus sed vulputate odio ut. Cursus mattis molestie a iaculis at erat pellentesque adipiscing.";
@@ -13,6 +14,7 @@ const contactContent =
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+dotenv.config();
 
 app.locals._ = _;
 
@@ -20,10 +22,19 @@ app.set("view engine", "ejs");
 
 app.use(express.static("public"));
 
-mongoose.connect(
-	"mongodb+srv://iamujj15:Uda0n7DU0jlTDJ5L@cluster0.ojrnjey.mongodb.net/blogDB",
-	{ useNewUrlParser: true }
-);
+const dbConnect = async function () {
+	try {
+		await mongoose.connect(`${process.env.MONGODB_CONNECT}`, {
+			useNewUrlParser: true,
+			useUnifiedTopology: true,
+		});
+		console.log("Connected to DB");
+	} catch (err) {
+		console.error(err.message);
+	}
+};
+
+dbConnect();
 
 const postSchema = {
 	title: String,
