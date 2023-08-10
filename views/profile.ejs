@@ -19,9 +19,9 @@
 		/>
 		<link rel="stylesheet" type="text/css" href="/css/styles.css" />
 	</head>
-	<body class="d-flex flex-column justify-content-between align-items-center text-center">
+	<body class="d-flex flex-column justify-content-between text-center">
         <div>
-            <header class="p-3 text-bg-dark" style="width: 100vw;">
+            <header class="p-3 text-bg-dark">
                 <div class="container">
                     <div
                         class="d-flex flex-wrap align-items-center justify-content-between"
@@ -59,7 +59,7 @@
                                     </a>
                                 </li>
 								<li>
-									<a href="/profile" class="btn btn-primary btn-lg fw-bold">Profile</a>
+									<a href="/compose" class="btn btn-warning btn-lg fw-bold">Compose</a>
                                 </li>
                             </ul>
                         </div>
@@ -68,16 +68,33 @@
             </header>
         </div>
 
-		<div class="post">
-			<div>
-				<h1><%= post.title %></h1>
-				<p><%= post.body %></p>
+		<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+			<div class="d-flex flex-row justify-content-center text-center border mb-2 p-2" style="width: 70vw; border-radius: 8px;">
+				<div>
+					<h1><strong>Welcome Back<%=name%> </strong><a href="/profile" style="text-decoration: none;">@<%=username%></a></h1>
+				</div>
 			</div>
-			<div>
-				<form action="/delete" method="post">
-					<input type="hidden" name="postId" value="<%=post._id%>" />
-					<button type="submit" class="btn btn-danger">Delete</button>
-				</form>
+			<div class="d-flex text-center">
+				<div
+				class="cover-container d-flex mx-auto flex-column"
+				style="border-radius: 15px; width: 70vw; height: 60vh; padding: 40px; background-color: #D8D9DA; overflow: auto; gap: 10px;">
+				
+				<% for (let i = posts.length - 1; i >= 0; --i) { %>
+					<div class="post-profile">
+						<h2><%= posts[i].title %></h2>
+						<p>
+							<% if (posts[i].body.length > 200) { %>
+								<p><%= posts[i].body.substring(0, 200) + "... "%><a href="/<%=posts[i]._id%>">Read More</a></p>
+							<% } else { %>
+								<p><%= posts[i].body %></p>
+								<a href="/<%=posts[i]._id%>">Read More</a>
+							<% } %>
+						</p>
+						<%= %>
+					</div>
+				<% } %>
+				
+				</div>
 			</div>
 		</div>
 

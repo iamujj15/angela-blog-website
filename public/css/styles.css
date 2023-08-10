@@ -3,6 +3,10 @@ html {
 	position: relative;
 }
 
+body {
+	height: 100vh;
+}
+
 .container-fluid {
 	padding-top: 70px;
 	padding-bottom: 70px;
@@ -25,17 +29,17 @@ html {
 }
 
 .footer {
-	position: absolute;
 	text-align: center;
 	bottom: 0;
 	width: 100%;
 	height: 60px;
-	background-color: #97a7af;
+	background-color: rgb(33, 37, 41);
 }
 
 .footer p {
-	margin-top: 25px;
-	font-size: 12px;
+	margin-top: 24px;
+	margin-bottom: 0;
+	font-size: 18px;
 	color: #fff;
 }
 
@@ -43,6 +47,28 @@ html {
 	margin: 0px 10vw;
 }
 
+.post-profile {
+	margin: 0px;
+	padding: 10px;
+	background-color: #fff6e0;
+	border-radius: 5px;
+	width: 100%;
+}
+
 .post {
-	margin: 0px 10vw;
+	display: flex;
+	flex-direction: column;
+	width: 90vw;
+	height: 80vh;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff6e0;
+	padding: 20px;
+	overflow: auto;
+}
+
+.post p,
+.post-profile p {
+	word-break: break-all;
+	white-space: normal;
 }

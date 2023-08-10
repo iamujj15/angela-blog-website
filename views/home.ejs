@@ -1,17 +1,86 @@
-<%- include("partials/header") %>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Personal Blogs</title>
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alegreya:wght@900&family=Libre+Baskerville:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alegreya:wght@900&family=Libre+Baskerville:wght@700&family=Roboto&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+	</head>
+	<body class="d-flex flex-column justify-content-between text-center">
+        <div>
+            <header class="p-3 text-bg-dark">
+                <div class="container">
+                    <div
+                        class="d-flex flex-wrap align-items-center justify-content-between"
+                    >
+                        <div>
+                            <a
+                            href="/"
+                            class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+                            >
+                                <h1>Personal Blogs</h1>
+                            </a>
+                        </div>
+                        <div>
+                            <ul
+                                class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+                            >
+                                <li>
+                                    <a href="/" class="nav-link px-2 text-white">
+                                        <h4>Home</h4>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/about" class="nav-link px-2 text-white">
+                                        <h4>About</h4>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/contact" class="nav-link px-2 text-white">
+                                        <h4>Contact</h4>
+                                    </a>
+                                </li>
+								<li>
+									<a href="/compose" class="btn btn-warning btn-lg fw-bold">Compose</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
 
-<div class="post">
-	<h1>Home</h1>
-	<p><%= homeStartingContent %></p>
-</div>
+        <div class="d-flex text-center">
+            <div
+            class="cover-container d-flex h-200 p-3 mx-auto text-bg-dark flex-column"
+            style="border-radius: 15px;">
+            <main class="px-3" style="padding: 20px;">
+                <h1>Welcome</h1>
+                <p class="lead" style="margin-bottom: 50px;">Login Here to access your Blogs</p>
+                <p class="lead">
+                    <a href="/login" class="btn btn-lg btn-light fw-bold border-white bg-white mr-2">Login</a>
+                    <a href="/signup" class="btn btn-warning btn-lg fw-bold">Signup</a>
+                </p>
+            </main>
+            </div>
+        </div>
 
-<% posts.forEach(function(post) { %>
-<div class="post">
-	<h1><%= post.title %></h1>
-	<p>
-		<%= post.body.substring(0, 100) + "..." %>
-		<a href="/posts/<%=post.title%>">Read More</a>
-	</p>
-	<%= %>
-</div>
-<% }); %> <%- include("partials/footer") %>
+        <div class="footer">
+          <p>Blog by Ujjwal Upadhyay 🦅</p>
+        </div>
+      </div>
+    </body>
+</html>

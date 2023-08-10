@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Personal Blogs</title>
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alegreya:wght@900&family=Libre+Baskerville:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alegreya:wght@900&family=Libre+Baskerville:wght@700&family=Roboto&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+	</head>
+	<body class="d-flex flex-column justify-content-between text-center">
+        <div>
+            <header class="p-3 text-bg-dark">
+                <div class="container">
+                    <div
+                        class="d-flex flex-wrap align-items-center justify-content-between"
+                    >
+                        <div>
+                            <a
+                            href="/"
+                            class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+                            >
+                                <h1>Personal Blogs</h1>
+                            </a>
+                        </div>
+                        <div>
+                            <ul
+                                class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+                            >
+                                <li>
+                                    <a href="/" class="nav-link px-2 text-white">
+                                        <h4>Home</h4>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/about" class="nav-link px-2 text-white">
+                                        <h4>About</h4>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/contact" class="nav-link px-2 text-white">
+                                        <h4>Contact</h4>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <div class="d-flex text-center">
+            <div
+            class="cover-container d-flex mx-auto flex-column justify-content-center"
+            style="border-radius: 15px; width: 50vw; height: 75vh; padding: 40px; background-color: #D8D9DA;">
+                <main>
+                    <section class="pb-4">
+                        <div class="rounded-5 d-flex justify-content-center align-items-center" style="height: 100%">
+                            <section class="w-100 p-4 d-flex justify-content-center pb-4">
+                                <div style="width: 26rem" class="login-form">
+                                    <!-- Pills navs -->
+                                    <ul
+                                        class="nav nav-pills nav-justified mb-3"
+                                        id="ex1"
+                                        role="tablist"
+                                    >
+                                        <li class="nav-item" role="presentation">
+                                            <a
+                                                class="nav-link text-white active"
+                                                id="tab-login"
+                                                style="background-color: #191825"
+                                                data-mdb-toggle="pill"
+                                                role="tab"
+                                                aria-controls="pills-login"
+                                                aria-selected="true"
+                                                onclick="fn()"
+                                                >Login</a
+                                            >
+                                        </li>
+                                    </ul>
+                                    <!-- Pills navs -->
+                
+                                    <%- include("partials/messages"); -%>
+                
+                                    <!-- Pills content -->
+                                    <div class="tab-content">
+                                        <div
+                                            class="tab-pane fade show active"
+                                            id="pills-login"
+                                            role="tabpanel"
+                                            aria-labelledby="tab-login"
+                                        >
+                                            <form action="/login" method="post">
+                
+                                                <!-- Email input -->
+                                                <div class="form-outline mb-4">
+                                                    <label
+                                                        class="form-label"
+                                                        for="loginName"
+                                                        style="margin-left: 0px"
+                                                        >Username</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        id="loginName"
+                                                        class="form-control"
+                                                        name="username"
+                                                    />
+                                                    <div class="form-notch">
+                                                        <div
+                                                            class="form-notch-leading"
+                                                            style="width: 9px"
+                                                        ></div>
+                                                        <div
+                                                            class="form-notch-middle"
+                                                            style="width: 114.4px"
+                                                        ></div>
+                                                        <div class="form-notch-trailing"></div>
+                                                    </div>
+                                                </div>
+                
+                                                <!-- Password input -->
+                                                <div class="form-outline mb-4">
+                                                    <label
+                                                        class="form-label"
+                                                        for="loginPassword"
+                                                        style="margin-left: 0px"
+                                                        >Password</label
+                                                    >
+                                                    <input
+                                                        type="password"
+                                                        id="loginPassword"
+                                                        class="form-control"
+                                                        name="password"
+                                                    />
+                                                    <div class="form-notch">
+                                                        <div
+                                                            class="form-notch-leading"
+                                                            style="width: 9px"
+                                                        ></div>
+                                                        <div
+                                                            class="form-notch-middle"
+                                                            style="width: 64.8px"
+                                                        ></div>
+                                                        <div class="form-notch-trailing"></div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- Submit button -->
+                                                <div class="text-center">
+                                                    <button
+                                                        type="submit"
+                                                        class="btn btn-primary btn-block mb-4"
+                                                        style="
+                                                            background-color: #865dff;
+                                                            border-color: #865dff;
+                                                        "
+                                                    >
+                                                        Sign in
+                                                    </button>
+                                                </div>
+                
+                                                <!-- Register buttons -->
+                                                <div class="text-center">
+                                                    <p>
+                                                        Not a member?
+                                                        <a href="/signup">Register</a>
+                                                    </p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- Pills content -->
+                                </div>
+                            </section>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <div class="footer">
+          <p>Blog by Ujjwal Upadhyay 🦅</p>
+        </div>
+      </div>
+    </body>
+</html>

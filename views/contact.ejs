@@ -1,7 +1,77 @@
-<%- include("partials/header") %>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Personal Blogs</title>
+		<link rel="stylesheet" href="/css/bootstrap.min.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alegreya:wght@900&family=Libre+Baskerville:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Alegreya:wght@900&family=Libre+Baskerville:wght@700&family=Roboto&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+	</head>
+	<body class="d-flex flex-column justify-content-between text-center">
+        <div>
+            <header class="p-3 text-bg-dark">
+                <div class="container">
+                    <div
+                        class="d-flex flex-wrap align-items-center justify-content-between"
+                    >
+                        <div>
+                            <a
+                            href="/"
+                            class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+                            >
+                                <h1>Personal Blogs</h1>
+                            </a>
+                        </div>
+                        <div>
+                            <ul
+                                class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+                            >
+                                <li>
+                                    <a href="/" class="nav-link px-2 text-white">
+                                        <h4>Home</h4>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/about" class="nav-link px-2 text-white">
+                                        <h4>About</h4>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/contact" class="nav-link px-2 text-white">
+                                        <h4>Contact</h4>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
 
-<h1>Contact</h1>
+        <div class="d-flex text-center">
+            <div
+            class="cover-container d-flex mx-auto text-bg-dark flex-column"
+            style="border-radius: 15px; width: 50vw; padding: 40px;">
+                <h1>Contact</h1>
+                <p><%= contactContent %></p>
+            </div>
+        </div>
 
-<p><%= contactContent %></p>
-
-<%- include("partials/footer") %>
+        <div class="footer">
+          <p>Blog by Ujjwal Upadhyay 🦅</p>
+        </div>
+      </div>
+    </body>
+</html>
