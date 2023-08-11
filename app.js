@@ -14,6 +14,7 @@ import eA from "./config/auth.js";
 import indexRouter from "./routes/index.js";
 import passportConfig from "./config/passport.js";
 import MongoStore from "connect-mongo";
+import favicon from "serve-favicon";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -22,6 +23,8 @@ const saltRounds = 15;
 
 // Passport Config
 passportConfig(passport);
+
+dotenv.config();
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
@@ -38,7 +41,7 @@ app.use(
 	"/js",
 	express.static(path.join(__dirname, "node_modules/jquery/dist"))
 );
-dotenv.config();
+app.use(favicon(path.join(__dirname, "public", "icons", "favicon.svg")));
 
 app.locals._ = _;
 
@@ -97,6 +100,8 @@ app.use(function (req, res, next) {
 	res.locals.error = req.flash("error");
 	next();
 });
+
+app.get("/favicon.ico", (req, res) => res.sendStatus(204));
 
 // Routes
 app.use("/", indexRouter);

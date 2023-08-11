@@ -100,18 +100,6 @@ router.post("/signup", function (req, res) {
     }
 });
 
-// router.get("/logout", function (req, res) {
-//     // req.session.destroy();
-//     req.logout(function (err) {
-//         if (err) {
-//             return next(err);
-//         }
-
-//         req.flash("success_msg", "You are sucessfully logged out");
-//         res.redirect("/login");
-//     });
-// });
-
 router.get("/logout", async function (req, res, next) {
     try {
         req.session.destroy();
