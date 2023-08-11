@@ -5,6 +5,7 @@ import passport from "passport";
 import eA from "../config/auth.js";
 import { Post } from "../models/User.js";
 import mongoose from "mongoose";
+import session from "express-session";
 
 const router = express.Router();
 const saltRounds = 15;
@@ -99,15 +100,27 @@ router.post("/signup", function (req, res) {
     }
 });
 
-router.get("/logout", function (req, res) {
-    req.logout(function (err) {
-        if (err) {
-            return next(err);
-        }
+// router.get("/logout", function (req, res) {
+//     // req.session.destroy();
+//     req.logout(function (err) {
+//         if (err) {
+//             return next(err);
+//         }
 
-        req.flash("success_msg", "You are sucessfully logged out");
+//         req.flash("success_msg", "You are sucessfully logged out");
+//         res.redirect("/login");
+//     });
+// });
+
+router.get("/logout", async function (req, res, next) {
+    try {
+        req.session.destroy();
+        res.clearCookie(process.env.SESSION_NAME);
+        // req.flash("success_msg", "You are sucessfully logged out");
         res.redirect("/login");
-    });
+    } catch (err) {
+        next(err);
+    }
 });
 
 router.get("/profile", eA.isAuthentic, async function (req, res) {

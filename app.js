@@ -13,6 +13,7 @@ import bcrypt from "bcrypt";
 import eA from "./config/auth.js";
 import indexRouter from "./routes/index.js";
 import passportConfig from "./config/passport.js";
+import MongoStore from "connect-mongo";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -57,13 +58,28 @@ const dbConnect = async function () {
 
 dbConnect();
 
+// MongoStore Middleware
+// const MongoStore = MongoStore(session);
+
 // Express Session
 app.use(
 	session({
+		name: process.env.SESS_NAME,
 		secret: process.env.SESSION_SECRET,
-		resave: true,
-		saveUninitialized: true,
-		cookie: { sameSite: "strict" },
+		resave: false,
+		saveUninitialized: false,
+		store: MongoStore.create({
+			mongoUrl: `${process.env.MONGODB_CONNECT}`,
+			collectionName: "sessions",
+			ttl: parseInt(process.env.SESS_LIFETIME) / 1000,
+			autoRemove: "native",
+			// autoRemoveInterval: 1,
+		}),
+		cookie: {
+			sameSite: true,
+			secure: process.env.NODE_ENV === "production",
+			maxAge: parseInt(process.env.SESS_LIFETIME)
+		},
 	})
 );
 
