@@ -63,6 +63,7 @@ router.post("/signup", function (req, res) {
     if (errors.length > 0) {
         res.render("signup", {
             errors: errors,
+            name: name,
             username: username,
             password: password,
             password2: password2,
