@@ -176,7 +176,7 @@ router.post("/delete", eA.isAuthentic, async function (req, res) {
 router.get("/:part", eA.isAuthentic, async function (req, res) {
     const partData = String(req.params.part);
     try {
-        const post = await Post.findById(new mongoose.Types.ObjectId(partData));
+        const post = await Post.findById(partData);
         res.render("post", {
             post: post,
         });
