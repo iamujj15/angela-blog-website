@@ -30,9 +30,10 @@
 ## Future Enhancements
 
 -   Edit Blogs
--   More Functionality in Website
+-   Add Images to Blogs.
+-   [x] Authentication for Users.
 -   More Features for Publishing Blogs.
--   Only Admin / Blog Owner can delete the Blog.
+-   [x] Only Admin / Blog Owner can delete the Blog.
 
 ## License
 
