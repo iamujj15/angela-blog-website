@@ -159,12 +159,10 @@ router.post("/compose", eA.isAuthentic, function (req, res) {
     req.user.posts.unshift(postData._id);
     req.user.save();
 
-    res.redirect(`/${postData._id}`);
+    res.redirect(`/${postData._id.toString()}`);
 });
 
 router.post("/delete", eA.isAuthentic, async function (req, res) {
-
-
     const pId = req.body.postId;
     const index = req.user.posts.indexOf(pId);
     if (index > -1) {
@@ -177,9 +175,8 @@ router.post("/delete", eA.isAuthentic, async function (req, res) {
 
 router.get("/:part", eA.isAuthentic, async function (req, res) {
     const partData = String(req.params.part);
-    const objectId = new mongoose.Types.ObjectId(partData);
     try {
-        const post = await Post.findById(objectId);
+        const post = await Post.findById(new mongoose.Types.ObjectId(partData));
         res.render("post", {
             post: post,
         });
