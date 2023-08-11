@@ -115,7 +115,7 @@ router.post("/signup", function (req, res) {
 router.get("/logout", async function (req, res, next) {
     try {
         req.session.destroy();
-        res.clearCookie(process.env.SESSION_NAME);
+        res.clearCookie("connect.sid");
         // req.flash("success_msg", "You are sucessfully logged out");
         res.redirect("/login");
     } catch (err) {
